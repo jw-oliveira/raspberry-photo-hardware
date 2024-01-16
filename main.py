@@ -1,6 +1,9 @@
 import time
 import picamera
 from telegram_sender import enviar_imagem
+from datetime import datetime
+
+now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
 def capture_image(image_name):
@@ -11,8 +14,8 @@ def capture_image(image_name):
 
 while True:
     label = input(str())
-    print('Etiqueta Capturada')
+    print(f'Etiqueta Capturada - {now}')
     capture_image(label)
-    print('Imagem Capturada')
+    print(f'Imagem Capturada - {now}')
     enviar_imagem(f'/home/jorge/Pictures/camera_test/{label}.jpg', label)
-    print('Imagem enviada')
+    print(f'Imagem enviada - {now}')
