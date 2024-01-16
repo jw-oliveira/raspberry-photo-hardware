@@ -3,7 +3,7 @@ from telegram import Bot
 from telegram import InputFile
 
 apiToken = '6806885063:AAHm3Mwd_-whmTsfNEt1jZaJqMgovu-VbN8'
-chatId = '-4162147141'
+chatId = '-4102081790'
 
 
 def enviar_imagem(file_path, caption):
