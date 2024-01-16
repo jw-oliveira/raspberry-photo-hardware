@@ -1,6 +1,6 @@
 import time
 import picamera
-from telegram_sender import send_message
+from telegram_sender import enviar_imagem
 
 
 def capture_image(image_name):
@@ -11,4 +11,4 @@ def capture_image(image_name):
 
 label = input(str())
 capture_image(label)
-send_message('test',f'/home/jorge/Pictures/camera_test/{label}.jpg')
+enviar_imagem(f'/home/jorge/Pictures/camera_test/{label}.jpg')
