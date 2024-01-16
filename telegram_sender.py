@@ -19,12 +19,3 @@ def send_message(message, imagem_path=None):
         print("Mensagem enviada com sucesso para o Telegram!")
     except Exception as error:
         print(f"Erro ao enviar mensagem para o Telegram: {error}")
-
-# Exemplo de uso sem imagem
-mensagem_sem_imagem = "Olá, esta é uma mensagem sem imagem!"
-send_message(mensagem_sem_imagem)
-
-# Exemplo de uso com imagem
-caminho_da_imagem = 'CAMINHO_DA_IMAGEM'  # Substitua pelo caminho real da imagem
-mensagem_com_imagem = "Olá, esta é uma mensagem com imagem!"
-send_message(mensagem_com_imagem, caminho_da_imagem)
