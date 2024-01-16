@@ -9,6 +9,10 @@ def capture_image(image_name):
         camera.capture(f'/home/jorge/Pictures/camera_test/{image_name}.jpg')
 
 
-label = input(str())
-capture_image(label)
-enviar_imagem(f'/home/jorge/Pictures/camera_test/{label}.jpg', label)
+while True:
+    label = input(str())
+    print('Etiqueta Capturada')
+    capture_image(label)
+    print('Imagem Capturada')
+    enviar_imagem(f'/home/jorge/Pictures/camera_test/{label}.jpg', label)
+    print('Imagem enviada')
