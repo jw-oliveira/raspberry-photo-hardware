@@ -11,4 +11,4 @@ def capture_image(image_name):
 
 label = input(str())
 capture_image(label)
-enviar_imagem(f'/home/jorge/Pictures/camera_test/{label}.jpg')
+enviar_imagem(f'/home/jorge/Pictures/camera_test/{label}.jpg', label)

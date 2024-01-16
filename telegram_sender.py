@@ -12,11 +12,12 @@ def telegram_message(message):
         requests.post(api_url, json={'chat_id': chat_id, 'text': message})
     except Exception as error:
         print(error)
-        
 
-def enviar_imagem(file_path):
+
+def enviar_imagem(file_path, caption):
     body = {
         'chat_id': '-4162147141',
+        'caption': caption
     }
     files = {
         'photo': open(file_path, 'rb')
