@@ -7,7 +7,7 @@ from datetime import datetime
 def capture_image(image_name):
     with picamera.PiCamera() as camera:
         time.sleep(0.5)
-        camera.capture(f'/home/jorge/Pictures/camera_test/{image_name}.jpg', quality=60)
+        camera.capture(f'/home/jorge/Pictures/camera_test/{image_name}.jpg', quality=30)
 
 
 while True:
