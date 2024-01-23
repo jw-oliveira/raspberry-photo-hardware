@@ -6,7 +6,7 @@ from telegram_sender import enviar_imagem
 from datetime import datetime
 
 
-def capture_image():
+def capture_image(resolution=(1920, 1080)):
     with picamera.PiCamera() as camera:
         time.sleep(0.5)
         stream = io.BytesIO()
