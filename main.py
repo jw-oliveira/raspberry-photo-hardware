@@ -1,20 +1,28 @@
-import time
 import picamera
-from telegram_sender import enviar_imagem
+import base64
+import io
+import json
+import time
 from datetime import datetime
 
 
 def capture_image(image_name):
     with picamera.PiCamera() as camera:
-        time.sleep(0.5)
-        camera.capture(f'/home/jorge/Pictures/camera_test/{image_name}.jpg', quality=10)
+        camera.resolution = (1920, 1080)
+        stream = io.BytesIO()
+        time.sleep(0.5)  # NÃO REMOVER, TEMPO DE ATIVAÇÃO DA CÂMERA
+        camera.capture(stream, format='jpeg', quality=10)
+        image_binary = stream.getvalue()
+        base64_data = base64.b64encode(image_binary).decode('utf-8')
+
+        value = {
+            "image_name": image_name,
+            "base64_data": base64_data
+        }
+
+        return json.dumps(value)
 
 
-while True:
-    label = input(str())
-    caption = f'Pedido: {label[0:6]} \nCaixa: {label[-2:]}'
-    print(f'Etiqueta Capturada - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
-    capture_image(label)
-    print(f'Imagem Capturada - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
-    enviar_imagem(f'/home/jorge/Pictures/camera_test/{label}.jpg', caption)
-    print(f'Imagem enviada - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+image_name_input = input(str())
+print(capture_image(image_name_input))
+print(f'Imagem Capturada - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')

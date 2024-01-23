@@ -1,6 +1,4 @@
 import requests
-from telegram import Bot
-from telegram import InputFile
 
 apiToken = '6806885063:AAHm3Mwd_-whmTsfNEt1jZaJqMgovu-VbN8'
 chatId = '-4102081790'
