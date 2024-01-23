@@ -10,6 +10,7 @@ def capture_image():
     with picamera.PiCamera() as camera:
         time.sleep(0.5)
         # camera.capture(f'/home/jorge/Pictures/camera_test/{image_name}.jpg', quality=10)
+        stream = io.BytesIO()
         camera.capture(stream, format='jpeg', quality=10)
         image_binary = stream.getvalue()
         base64_data = base64.b64encode(image_binary).decode('utf-8')
