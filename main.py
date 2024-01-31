@@ -2,26 +2,25 @@ import picamera
 import base64
 import io
 import json
-import time
 from datetime import datetime
 
 camera = picamera.PiCamera()
 
+
 def capture_image(image_name):
-    # with picamera.PiCamera() as camera:
     camera.resolution = (1920, 1080)
     stream = io.BytesIO()
-    # time.sleep(0.5)  # NÃO REMOVER, TEMPO DE ATIVAÇÃO DA CÂMERA
     camera.capture(stream, format='jpeg', quality=10)
     image_binary = stream.getvalue()
     base64_data = base64.b64encode(image_binary).decode('utf-8')
 
     value = {
-        "image_name": image_name,
+        "order_id": image_name[0:6],
         "base64_data": base64_data
     }
 
     return json.dumps(value)
+
 
 while True:
     image_name_input = input(str())
