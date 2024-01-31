@@ -22,7 +22,7 @@ def capture_image(image_name):
 
         return json.dumps(value)
 
-
-image_name_input = input(str())
-print(capture_image(image_name_input))
-print(f'Imagem Capturada - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+while True:
+    image_name_input = input(str())
+    print(capture_image(image_name_input))
+    print(f'Imagem Capturada - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
