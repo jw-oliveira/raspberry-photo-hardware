@@ -5,10 +5,10 @@ import json
 import time
 from datetime import datetime
 
+camera = picamera.PiCamera()
 
 def capture_image(image_name):
     # with picamera.PiCamera() as camera:
-    camera = picamera.PiCamera()
     camera.resolution = (1920, 1080)
     stream = io.BytesIO()
     # time.sleep(0.5)  # NÃO REMOVER, TEMPO DE ATIVAÇÃO DA CÂMERA
