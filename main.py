@@ -14,8 +14,11 @@ def capture_image(image_name):
     image_binary = stream.getvalue()
     base64_data = base64.b64encode(image_binary).decode('utf-8')
 
+    data = image_name.split('ç')
+
     value = {
-        "order_id": image_name[0:6],
+        "order_id": data[0],
+        "box_number": data[1],
         "base64_data": base64_data
     }
 
